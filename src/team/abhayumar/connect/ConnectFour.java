@@ -339,6 +339,9 @@ public class ConnectFour extends Canvas implements Runnable, MouseListener, Mous
 			// If winner is present, allow for winning path line to be drawn after drop animation is done
 			if (shouldRenderWinLine()) {
 				long thisTime = System.currentTimeMillis();
+				while ((thisTime - lastTime) <= PERIOD){
+					thisTime = System.currentTimeMillis();
+				}
 				if ((thisTime - lastTime) >= PERIOD) {
 					lastTime = thisTime;
 					shouldRender = true;
@@ -346,6 +349,7 @@ public class ConnectFour extends Canvas implements Runnable, MouseListener, Mous
 			}
 		}
 	}
+	
 
 	/**
 	 * Determine if winning path line should draw.
